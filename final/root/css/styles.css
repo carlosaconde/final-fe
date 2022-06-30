@@ -5,7 +5,8 @@
 }
 
 body {
-  width: 375px;
+  width: 100vw;
+
   background-image: url("../img/patron-naranja.svg ");
   background-size: contain;
   background-position: left 100px;
@@ -42,11 +43,11 @@ main {
 }
 
 .descripcion {
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
 }
 .img {
   width: 375px;
@@ -298,7 +299,7 @@ footer {
 }
 
 form {
-  height: 80px;
+  width: 300px;
   margin-top: 15%;
 }
 
@@ -312,11 +313,12 @@ form {
 .go {
   width: 80px;
   height: 40px;
+  display: inline;
   background-color: #f3603b;
   border-radius: 32px;
   color: #fafafa;
   transition-property: background-color, color, transform;
-    transition-duration: 500ms;
+  transition-duration: 500ms;
 }
 .go:hover {
   background-color: #f5e5e1;
@@ -374,7 +376,22 @@ form {
   color: #ffffff;
   margin-top: 5%;
 }
-
+/* mensaje de error cuando el mail esta mal escrito en el formulario */
+.error-msg {
+  color: #fa1515;
+  font-size: 0.8rem;
+  font-weight: 300;
+  display: none;
+}
+.email:invalid {
+  border: #fa1515 solid 2px;
+}
+.email:invalid + .error-msg {
+  position: absolute;
+  display: block;
+}
+/* elegí un viewport mayor a 1000 px para la varsion de escritorio, 
+pero no elegi uno en especifico*/
 @media (min-width: 1000px) {
   body {
     width: 100vw;
@@ -642,8 +659,10 @@ form {
   .formulario {
     display: flex;
     flex-direction: column;
+
     order: 2;
   }
+
   .menu-footer {
     width: 300px;
     display: flex;
@@ -665,5 +684,6 @@ form {
   .copyright-desktop {
     font-size: 1rem;
     color: #fafafa;
+    margin-top: 50px;
   }
 }
